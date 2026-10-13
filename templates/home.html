@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home-Movie</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Наши фильмы</h2>
+<div class="movies">
+    {% for movie in movies %}
+    <div class="card">
+        {% if movie.cover %}
+            <img
+                src="{{ movie.cover.url }}"
+                alt="{{ movie.name }}"
+            >
+        {% endif %}
+        <h3>{{ movie.name }}</h3>
+        <p>
+            {{ movie.description }}
+        </p>
+        <p>
+            <b>Дата выхода:</b>
+            {{ movie.date_movie }}
+        </p>
+        <p>
+            <b>Жанр:</b>
+            {{ movie.Janr.name }}
+        </p>
+    </div>
+    {% empty %}
+    <p>Пока фильмов нет.</p>
+    {% endfor %}
+</div>
+{% endblock %}

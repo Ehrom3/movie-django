@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema World</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Movie World</h1>
+        <p>Добро пожаловать в мир кино!</p>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}">
+            Главная
+        </a>
+        <a href="{% url 'create_movie' %}">
+            Добавить фильм
+        </a>
+        <a href="{% url 'feedback' %}">
+            Контакты и отзывы
+        </a>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p> 2026 Cinema World</p>
+    </footer>
+</body>
+</html>

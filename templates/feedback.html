@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Свяжитесь с нами</h2>
+<div class="contacts">
+    <h3>Наши контакты</h3>
+    <p>
+        📍 Адрес: Душанбе, Таджикистан
+    </p>
+    <p>
+        📞 Телефон: +992 92 800 37 77
+    </p>
+
+    <p>
+        📧 Email: cinema@gmail.com
+    </p>
+
+    <p>
+        🕒 Время работы: 11:00–22:00
+    </p>
+
+</div>
+
+<h2>Оставить отзыв</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Ваше имя:</label>
+    <input
+        type="text"
+        name="name"
+        placeholder="Введите ваше имя"
+        maxlength="50"
+        required
+    >
+    <label>Ваш отзыв:</label>
+    <textarea
+        name="message"
+        placeholder="Напишите ваш отзыв"
+        required
+    ></textarea>
+    <button type="submit">
+        Отправить отзыв
+    </button>
+</form>
+
+
+{% endblock %}

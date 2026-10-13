@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Добавить новый фильм</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Название фильма:</label>
+    <input
+        type="text"
+        name="name"
+        placeholder="Введите название"
+        maxlength="200"
+        required
+    >
+    <label>Описание фильма:</label>
+    <textarea
+        name="description"
+        placeholder="Введите описание"
+        maxlength="500"
+        required
+    ></textarea>
+    <label>Дата выхода:</label>
+    <input
+        type="date"
+        name="date_movie"
+        required
+    >
+    <label>Фотография:</label>
+    <input
+        type="file"
+        name="cover"
+        accept="image/*"
+    >
+    <label>Жанр:</label>
+    <select name="Janr" required>
+        <option value="">
+            Выберите жанр
+        </option>
+        {% for janr in janrs %}
+        <option value="{{ janr.id }}">
+            {{ janr.name }}
+        </option>
+        {% endfor %}
+    </select>
+    <button type="submit">
+        Добавить фильм
+    </button>
+</form>
+{% endblock %}
