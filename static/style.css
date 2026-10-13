@@ -109,12 +109,7 @@ button {
     padding: 13px 25px;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-size: 16px;
-}
-
-button:hover {
-    background: #0056b3;
 }
 
 .contacts {
